@@ -4,6 +4,7 @@ import "./Navbar.css";
 import Carousel from "../Carousel/Carousel";
 import About from "../About/About";
 import Comment from "../Comment/Comment";
+import Gallery from "../Gallery/Gallery";
 
 const Navb = () => {
   return (
@@ -34,6 +35,7 @@ const Navb = () => {
 
       <Carousel />
       <About />
+      <Gallery />
       <Comment />
     </React.Fragment>
   );
