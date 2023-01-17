@@ -110,6 +110,7 @@ const Comment = () => {
                   placeholder="Enter name"
                   name="name"
                   value={commentInput.name}
+                  style={errors.email ? { border: "1px solid red" } : {}}
                   {...register("name", {
                     onChange: handleChange,
                     required: true,
@@ -118,7 +119,11 @@ const Comment = () => {
                 {errors.name && (
                   <p
                     className="text-danger text-start"
-                    style={{ fontSize: 12, fontStyle: "italic" }}
+                    style={{
+                      fontSize: 12,
+                      fontStyle: "italic",
+                      fontWeight: 700,
+                    }}
                   >
                     Name is required
                   </p>
@@ -142,7 +147,11 @@ const Comment = () => {
                 {errors.email?.type === "required" && (
                   <p
                     className="text-danger text-start"
-                    style={{ fontSize: 12, fontStyle: "italic" }}
+                    style={{
+                      fontSize: 12,
+                      fontStyle: "italic",
+                      fontWeight: 700,
+                    }}
                   >
                     Email is required
                   </p>
@@ -150,7 +159,11 @@ const Comment = () => {
                 {errors.email?.type === "pattern" && (
                   <p
                     className="text-danger text-start"
-                    style={{ fontSize: 12, fontStyle: "italic" }}
+                    style={{
+                      fontSize: 12,
+                      fontStyle: "italic",
+                      fontWeight: 700,
+                    }}
                   >
                     Entered email is in wrong format
                   </p>
@@ -176,7 +189,11 @@ const Comment = () => {
                 {errors.message && (
                   <p
                     className="text-danger text-start"
-                    style={{ fontSize: 12, fontStyle: "italic" }}
+                    style={{
+                      fontSize: 12,
+                      fontStyle: "italic",
+                      fontWeight: 700,
+                    }}
                   >
                     Message is required
                   </p>

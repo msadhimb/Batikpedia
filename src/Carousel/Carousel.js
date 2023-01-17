@@ -10,7 +10,7 @@ const Carou = () => {
       <Carousel id="home">
         <Carousel.Item className="carousel">
           <img className="d-block w-100 bg" src={bg1} alt="First slide" />
-          <Carousel.Caption>
+          <Carousel.Caption style={{ backgroundColor: "#15171895" }}>
             <h3>Secara Historis</h3>
             <p>
               Batik berasal dari zaman nenek moyang dan dikenal sejak abad ke
@@ -24,7 +24,7 @@ const Carou = () => {
         <Carousel.Item className="carousel">
           <img className="d-block w-100 bg" src={bg2} alt="Second slide" />
 
-          <Carousel.Caption>
+          <Carousel.Caption style={{ backgroundColor: "#15171895" }}>
             <h3>Teknik Canting Tulis</h3>
             <p>
               Teknik canting tulis adalah teknik membatik dengan menggunakan
