@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import { Button, Dropdown } from "bootstrap";
+import React, { useEffect, useId, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import { uid } from "uid";
 import "./Comment.css";
 
 const Comment = () => {
@@ -10,9 +13,89 @@ const Comment = () => {
     handleSubmit,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  // Comment
+  const [comment, setComment] = useState([
+    {
+      id: 1,
+      name: "User Example",
+      email: "example@mail.com",
+      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      date: "12/12/2021",
+    },
+  ]);
+
+  const [commentInput, setCommentInput] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  function handleChange(e) {
+    let data = { ...commentInput };
+    data[e.target.name] = e.target.value;
+    setCommentInput(data);
+  }
+
+  const onSubmit = () => {
+    let data = [...comment];
+    data.push({
+      id: uid(),
+      name: commentInput.name,
+      email: commentInput.email,
+      message: commentInput.message,
+      date: new Date().toLocaleDateString(),
+    });
+    setComment(data);
+    setCommentInput({
+      name: "",
+      email: "",
+      message: "",
+    });
   };
+
+  const handleDelete = (id) => {
+    let data = [...comment];
+    data = data.filter((item) => item.id !== id);
+    setComment(data);
+  };
+
+  const [commentEdit, setCommentEdit] = useState({
+    id: "",
+    name: "",
+    email: "",
+    messageEdit: "",
+  });
+
+  const [edit, setEdit] = useState(false);
+  const handleEdit = (id) => {
+    let data = [...comment];
+    data = data.find((item) => item.id === id);
+    setCommentEdit({
+      id: data.id,
+      name: data.name,
+      email: data.email,
+      messageEdit: data.message,
+    });
+    setEdit(true);
+  };
+
+  const handleChangeEdit = (e) => {
+    let data = { ...commentEdit };
+    data[e.target.name] = e.target.value;
+    setCommentEdit(data);
+  };
+
+  const handleUpdate = () => {
+    let data = [...comment];
+    data.forEach((item) => {
+      if (item.id === commentEdit.id) {
+        item.message = commentEdit.messageEdit;
+      }
+    });
+    setComment(data);
+    setEdit(false);
+  };
+
   return (
     <React.Fragment>
       <div className="containers pt-5 pb-5">
@@ -26,8 +109,11 @@ const Comment = () => {
                   type="text"
                   placeholder="Enter name"
                   name="name"
-                  style={errors.name ? { border: "1px solid red" } : {}}
-                  {...register("name", { required: true })}
+                  value={commentInput.name}
+                  {...register("name", {
+                    onChange: handleChange,
+                    required: true,
+                  })}
                 />
                 {errors.name && (
                   <p
@@ -43,10 +129,12 @@ const Comment = () => {
                 <Form.Control
                   type="email"
                   placeholder="Enter email"
+                  value={commentInput.email}
                   style={errors.email ? { border: "1px solid red" } : {}}
                   name="email"
                   {...register("email", {
                     required: true,
+                    onChange: handleChange,
                     pattern:
                       /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/i,
                   })}
@@ -73,13 +161,17 @@ const Comment = () => {
                 <Form.Control
                   as="textarea"
                   placeholder="Leave a comment here"
+                  value={commentInput.message}
                   style={
                     errors.message
                       ? { border: "1px solid red", height: 100 }
                       : { height: 100 }
                   }
                   name="message"
-                  {...register("message", { required: true })}
+                  {...register("message", {
+                    onChange: handleChange,
+                    required: true,
+                  })}
                 />
                 {errors.message && (
                   <p
@@ -101,29 +193,164 @@ const Comment = () => {
             <h4 className="text-white text-start">Comment Section</h4>
           </div>
           <div className="line"></div>
-          <div className="comment-section d-flex justify-content-center p-3">
-            <div className="comment-container">
-              <div className="commentar-name">
-                <div className="comment-header d-flex justify-content-between">
-                  <h5 className="text-start" style={{ fontWeight: 700 }}>
-                    User Example
-                  </h5>
-                  <p className="text-start">12/12/2021</p>
-                </div>
-                <p className="text-start">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
+          <div className="container">
+            {comment.map((item) => {
+              if (edit === true && item.id === commentEdit.id) {
+                return (
+                  <div className="comment-section d-flex justify-content-center p-3">
+                    <div className="comment-container">
+                      <div className="commentar-name">
+                        <div className="comment-header d-flex justify-content-between">
+                          <h5
+                            className="text-start m-0"
+                            style={{ fontWeight: 700 }}
+                          >
+                            {item.name}
+                          </h5>
+                          <p className="text-start mb-1">{item.date}</p>
+                        </div>
+                        <div className="comment-options d-flex justify-content-end pb-2">
+                          <button
+                            className="btn btn-success btn-sm me-3"
+                            onClick={() => {
+                              Swal.fire(
+                                "Komentar berhasil diubah!",
+                                "",
+                                "success"
+                              );
+                              handleUpdate();
+                            }}
+                          >
+                            <i
+                              class="fa-solid fa-check icon"
+                              style={{ fontSize: 15 }}
+                            ></i>
+                          </button>
+                          <button className="btn btn-danger btn-sm">
+                            <i
+                              class="fa-solid fa-xmark icon"
+                              style={{ fontSize: 15 }}
+                              onClick={() => setEdit(false)}
+                            ></i>
+                          </button>
+                        </div>
+                        <Form.Control
+                          as="textarea"
+                          placeholder="Leave a comment here"
+                          value={commentEdit.messageEdit}
+                          onChange={handleChangeEdit}
+                          name="messageEdit"
+                          style={{ height: 100 }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                );
+              } else {
+                return (
+                  <div className="comment-section d-flex justify-content-center p-3">
+                    <div className="comment-container">
+                      <div className="commentar-name">
+                        <div className="comment-options d-flex justify-content-between">
+                          <h5
+                            className="text-start m-0"
+                            style={{ fontWeight: 700 }}
+                          >
+                            {item.name}
+                          </h5>
+
+                          <div className="dropdown-options">
+                            <i className="fa-solid fa-ellipsis m-0 p-0 icon"></i>
+                            <div className="dropdown-content-options">
+                              <div className="edit-options">
+                                <div
+                                  className="dropdown-item d-flex align-items-center "
+                                  onClick={() =>
+                                    Swal.fire({
+                                      showDenyButton: true,
+                                      icon: "info",
+                                      title: "Oops...",
+                                      text: "Apakah anda akan mengedit komentar ini?",
+                                      confirmButtonText: "Ya",
+                                      confirmButtonColor: "#0d6efd",
+                                      denyButtonText: "Tidak",
+                                    }).then((result) => {
+                                      /* Read more about isConfirmed, isDenied below */
+                                      if (result.isConfirmed) {
+                                        handleEdit(item.id);
+                                      }
+                                    })
+                                  }
+                                >
+                                  <i
+                                    class="fa-regular fa-pen-to-square me-2  icon"
+                                    style={{ fontSize: 12 }}
+                                  ></i>
+                                  <p
+                                    className=" m-0 icon"
+                                    style={{ fontSize: 12 }}
+                                  >
+                                    Edit
+                                  </p>
+                                </div>
+                              </div>
+                              <div className="delete-options">
+                                <div
+                                  className="dropdown-item d-flex align-items-center "
+                                  onClick={() =>
+                                    Swal.fire({
+                                      showDenyButton: true,
+                                      icon: "error",
+                                      title: "Oops...",
+                                      text: "Apakah anda akan menghapus komentar ini?",
+                                      confirmButtonText: "Ya",
+                                      confirmButtonColor: "#0d6efd",
+                                      denyButtonText: "Tidak",
+                                    }).then((result) => {
+                                      /* Read more about isConfirmed, isDenied below */
+                                      if (result.isConfirmed) {
+                                        Swal.fire(
+                                          "Komentar telah terhapus!",
+                                          "",
+                                          "success"
+                                        );
+                                        handleDelete(item.id);
+                                      }
+                                    })
+                                  }
+                                >
+                                  <i
+                                    class="fa-solid fa-trash icon me-2  icon"
+                                    style={{ fontSize: 12 }}
+                                  ></i>
+                                  <p
+                                    className=" m-0 icon"
+                                    style={{ fontSize: 12 }}
+                                  >
+                                    Delete
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          {/* 
+
+                          <i
+                            class="fa-solid fa-xmark icon"
+                            style={{ fontSize: 20 }}
+                            onClick={() => handleDelete(item.id)}
+                          ></i> */}
+                        </div>
+                        <div className="comment-header d-flex justify-content-end">
+                          <p className="text-start ">{item.date}</p>
+                        </div>
+                        <p className="text-start">{item.message}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+            })}
           </div>
         </div>
       </div>

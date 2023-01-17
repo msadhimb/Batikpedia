@@ -10,25 +10,7 @@ const Gallery = () => {
       <div className="bg-dark">
         <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
           <Masonry columnsCount={3}>
-            <div class="container-image">
-              <img src={bg1} alt="Avatar" class="image" />
-              <div class="overlay-bottom">
-                <div class="text">Hello World</div>
-              </div>
-            </div>
-            <div class="container-image">
-              <img src={bg1} alt="Avatar" class="image" />
-              <div class="overlay-bottom">
-                <div class="text">Hello World</div>
-              </div>
-            </div>
-            <div class="container-image">
-              <img src={bg1} alt="Avatar" class="image" />
-              <div class="overlay-bottom">
-                <div class="text">Hello World</div>
-              </div>
-            </div>
-            <div class="container-image">
+            <div class="container-image p-1">
               <img src={bg1} alt="Avatar" class="image" />
               <div class="overlay-bottom">
                 <div class="text">Hello World</div>

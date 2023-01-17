@@ -20,6 +20,40 @@
   background-color: #ffffff;
 }
 
+.icon:hover {
+  cursor: pointer;
+}
+
+.dropdown-options {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content-options {
+  position: absolute;
+  transform: translate(-55px, -5px);
+  display: none;
+  border-radius: 5px;
+  background: #f6f6f6;
+  z-index: 9999;
+  box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item {
+  color: #212529;
+  padding: 5px 10px;
+}
+
+.dropdown-content-options .dropdown-item:hover {
+  background: rgba(41, 41, 41, 0.8);
+  color: white;
+}
+
+.dropdown-options:hover .dropdown-content-options {
+  border-radius: 5px;
+  display: block;
+}
+
 @media (max-width: 768px) {
   .contact-container {
     width: 30rem;
