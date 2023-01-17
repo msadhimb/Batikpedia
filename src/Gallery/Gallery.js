@@ -44,7 +44,7 @@ const Gallery = () => {
       <div className="search bg-dark ps-5">
         <Form.Control
           type="text"
-          placeholder="Cari Batik"
+          placeholder="Cari Batik (Asal kota)"
           style={{ width: 300 }}
           onChange={(event) => setSearchTerm(event.target.value)}
         />
