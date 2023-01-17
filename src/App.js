@@ -13,7 +13,13 @@ import {
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/admin" element={<Navbar />} />
+          <Route path="/user" element={<Navbar />} />
+          <Route path="*" element={<Navigate to="/user" />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
