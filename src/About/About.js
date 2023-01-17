@@ -5,7 +5,7 @@ import "./About.css";
 const About = () => {
   return (
     <React.Fragment>
-      <div className="container-about">
+      <div className="container-about" id="about">
         <h1 className="about-title mb-4">About</h1>
         <div className="about-content  pb-5">
           <Row className="d-flex justify-content-center align-items-center">

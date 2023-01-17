@@ -98,13 +98,13 @@ const Comment = () => {
 
   return (
     <React.Fragment>
-      <div className="containers pt-5 pb-5">
-        <h2 className="text-white">Comment</h2>
-        <div className="d-flex justify-content-center">
+      <div className="containers pt-5 pb-5 cmnt" id="comment">
+        <h2 className="text-white comment-title">Comment</h2>
+        <div className="container d-flex justify-content-end">
           <div className="contact-container">
             <Form onSubmit={handleSubmit(onSubmit)}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <p className="text-start m-0">Name</p>
+                <p className="text-start text-white m-0">Name</p>
                 <Form.Control
                   type="text"
                   placeholder="Enter name"
@@ -125,7 +125,7 @@ const Comment = () => {
                 )}
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <p className="text-start m-0">Email</p>
+                <p className="text-start text-white m-0">Email</p>
                 <Form.Control
                   type="email"
                   placeholder="Enter email"
@@ -157,7 +157,7 @@ const Comment = () => {
                 )}
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <p className="text-start m-0">Message</p>
+                <p className="text-start text-white m-0">Message</p>
                 <Form.Control
                   as="textarea"
                   placeholder="Leave a comment here"
@@ -182,15 +182,17 @@ const Comment = () => {
                   </p>
                 )}
               </Form.Group>
-              <button className="btn btn-primary btn-submit" type="submit">
-                Submit
-              </button>
+              <div className="d-flex justify-content-end">
+                <button className="btn btn-primary btn-submit" type="submit">
+                  Submit
+                </button>
+              </div>
             </Form>
           </div>
         </div>
         <div className="comment-section mt-5">
           <div className="container">
-            <h4 className="text-white text-start">Comment Section</h4>
+            <h4 className="text-white text-end">Comment Section</h4>
           </div>
           <div className="line"></div>
           <div className="container">

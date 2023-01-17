@@ -4,9 +4,6 @@
 .contact-container {
   width: 35rem;
 }
-.btn-submit {
-  width: 100%;
-}
 
 .line {
   border: 1px solid #ffffff;
@@ -52,6 +49,16 @@
 .dropdown-options:hover .dropdown-content-options {
   border-radius: 5px;
   display: block;
+}
+
+.cmnt {
+  background-image: url("./asset/bg-comment.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.comment-title {
+  margin-left: 35rem;
 }
 
 @media (max-width: 768px) {

@@ -7,7 +7,7 @@ import "./Carousel.css";
 const Carou = () => {
   return (
     <React.Fragment>
-      <Carousel>
+      <Carousel id="home">
         <Carousel.Item>
           <img className="d-block w-100 bg" src={bg1} alt="First slide" />
           <Carousel.Caption>
