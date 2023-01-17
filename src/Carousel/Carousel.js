@@ -8,7 +8,7 @@ const Carou = () => {
   return (
     <React.Fragment>
       <Carousel id="home">
-        <Carousel.Item>
+        <Carousel.Item className="carousel">
           <img className="d-block w-100 bg" src={bg1} alt="First slide" />
           <Carousel.Caption>
             <h3>Secara Historis</h3>
@@ -21,7 +21,7 @@ const Carou = () => {
             </p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item>
+        <Carousel.Item className="carousel">
           <img className="d-block w-100 bg" src={bg2} alt="Second slide" />
 
           <Carousel.Caption>

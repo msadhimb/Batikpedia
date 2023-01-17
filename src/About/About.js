@@ -6,11 +6,11 @@ const About = () => {
   return (
     <React.Fragment>
       <div className="container-about" id="about">
-        <h1 className="about-title mb-4">About</h1>
+        <h1 className="about-title mb-4 text-center">About</h1>
         <div className="about-content  pb-5">
           <Row className="d-flex justify-content-center align-items-center">
             <Col md="4">
-              <h2 className="text-white content1 ">BatikPedia</h2>
+              <h2 className="text-white content1 text-center">BatikPedia</h2>
             </Col>
             <Col md="5">
               <p className="text-white content2 p-4">

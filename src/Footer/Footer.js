@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-section about d-flex text-white justify-content-between">
             <h1
-              className="logo-text text-white navLogo"
+              className="logo-text text-white navLogo logo-footer"
               style={{ fontSize: 60 }}
             >
               <span>Batik</span>Pedia
@@ -37,7 +37,7 @@ const Footer = () => {
                 </a>
               </ul>
             </div>
-            <div className="socials d-flex align-items-center">
+            <div className="socials  align-items-center ">
               <a href="#">
                 <i className="fab fa-facebook"></i>
               </a>

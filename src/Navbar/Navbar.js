@@ -4,10 +4,13 @@ import "./Navbar.css";
 import Carousel from "../Carousel/Carousel";
 import About from "../About/About";
 import Comment from "../Comment/Comment";
+import CommentUser from "../CommentUser/CommentUser";
 import Gallery from "../Gallery/Gallery";
 import Footer from "../Footer/Footer";
 
 const Navb = () => {
+  const url = window.location.pathname;
+  console.log(url);
   return (
     <React.Fragment>
       <Navbar bg="dark" variant="dark" className="fixed-top">
@@ -38,7 +41,7 @@ const Navb = () => {
       <Carousel />
       <About />
       <Gallery />
-      <Comment />
+      {url === "/admin" ? <Comment /> : <CommentUser />}
       <Footer />
     </React.Fragment>
   );
