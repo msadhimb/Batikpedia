@@ -307,7 +307,7 @@ const Comment = () => {
                                   }
                                 >
                                   <i
-                                    class="fa-regular fa-pen-to-square me-2  icon"
+                                    className="fa-regular fa-pen-to-square me-2  icon"
                                     style={{ fontSize: 12 }}
                                   ></i>
                                   <p
@@ -344,7 +344,7 @@ const Comment = () => {
                                   }
                                 >
                                   <i
-                                    class="fa-solid fa-trash icon me-2  icon"
+                                    className="fa-solid fa-trash icon me-2  icon"
                                     style={{ fontSize: 12 }}
                                   ></i>
                                   <p
