@@ -1,8 +1,6 @@
-import { Button, Dropdown } from "bootstrap";
-import React, { useEffect, useId, useState } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
 import { uid } from "uid";
 import "../Comment/Comment.css";
 

@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, Form } from "react-bootstrap";
-import bg1 from "../Carousel/asset/bg1.jpg";
+import { Form } from "react-bootstrap";
 import "./Gallery.css";
 
 const Gallery = () => {
@@ -58,6 +57,8 @@ const Gallery = () => {
               image.asal.toLowerCase().includes(searchTerm.toLowerCase())
             ) {
               return image;
+            } else {
+              return null;
             }
           })
           .map((image) => {
