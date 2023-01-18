@@ -35,9 +35,12 @@
 .motif,
 .desc {
   margin-top: 2.5rem;
-  margin-left: 2.5rem;
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
+}
+
+.desc {
+  text-align: justify;
 }
 
 .gallery-item:hover .overlay {
@@ -49,9 +52,13 @@
   height: 80rem !important;
 }
 
+.overlay {
+  width: max-content;
+}
+
 @media (max-width: 992px) {
   .image-expand {
-    height: 100rem !important;
+    height: max-content !important;
   }
 }
 @media (max-width: 768px) {

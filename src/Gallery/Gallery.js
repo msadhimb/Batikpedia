@@ -23,15 +23,15 @@ const Gallery = () => {
   const DescBatik = ({ data }) => {
     return (
       <React.Fragment>
-        <p className="text-start motif">Motif Batik : {data.motif}</p>
-        <p
-          className="text-start desc"
-          dangerouslySetInnerHTML={{
-            __html: data.deskripsi_sejarah,
-            style: { textAlign: "justify" },
-          }}
-          style={{ textAlign: "justify" }}
-        ></p>
+        <div>
+          <p className="text-start motif">Motif Batik : {data.motif}</p>
+          <p
+            className=" desc"
+            dangerouslySetInnerHTML={{
+              __html: data.deskripsi_sejarah,
+            }}
+          ></p>
+        </div>
       </React.Fragment>
     );
   };
