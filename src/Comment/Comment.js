@@ -215,7 +215,10 @@ const Comment = () => {
             {comment.map((item) => {
               if (edit === true && item.id === commentEdit.id) {
                 return (
-                  <div className="comment-section d-flex justify-content-center p-3">
+                  <div
+                    className="comment-section d-flex justify-content-center p-3"
+                    key={item.id}
+                  >
                     <div className="comment-container">
                       <div className="commentar-name">
                         <div className="comment-header d-flex justify-content-between">
@@ -266,7 +269,10 @@ const Comment = () => {
                 );
               } else {
                 return (
-                  <div className="comment-section d-flex justify-content-center p-3">
+                  <div
+                    className="comment-section d-flex justify-content-center p-3"
+                    key={item.id}
+                  >
                     <div className="comment-container">
                       <div className="commentar-name">
                         <div className="comment-options d-flex justify-content-between">
@@ -351,13 +357,6 @@ const Comment = () => {
                               </div>
                             </div>
                           </div>
-                          {/* 
-
-                          <i
-                            class="fa-solid fa-xmark icon"
-                            style={{ fontSize: 20 }}
-                            onClick={() => handleDelete(item.id)}
-                          ></i> */}
                         </div>
                         <div className="comment-header d-flex justify-content-end">
                           <p className="text-start ">{item.date}</p>

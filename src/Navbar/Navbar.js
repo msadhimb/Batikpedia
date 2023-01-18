@@ -18,7 +18,7 @@ const Navb = () => {
           <Nav>
             <div className="dropdown">
               <Nav.Link>
-                <i class="fa-solid fa-bars"></i>
+                <i className="fa-solid fa-bars"></i>
               </Nav.Link>
               <div className="dropdown-content">
                 <a href="#about">About</a>
@@ -32,7 +32,7 @@ const Navb = () => {
           </Navbar.Brand>
           <Nav>
             <Nav.Link href="#home">
-              <i class="fa-solid fa-house"></i>
+              <i className="fa-solid fa-house"></i>
             </Nav.Link>
           </Nav>
         </Container>

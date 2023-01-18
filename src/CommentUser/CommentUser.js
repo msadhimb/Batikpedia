@@ -170,7 +170,10 @@ const Comment = () => {
           <div className="container">
             {comment.map((item) => {
               return (
-                <div className="comment-section d-flex justify-content-center p-3">
+                <div
+                  className="comment-section d-flex justify-content-center p-3"
+                  key={item.id}
+                >
                   <div className="comment-container">
                     <div className="commentar-name">
                       <div className="comment-options d-flex justify-content-between">

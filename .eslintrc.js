@@ -12,5 +12,6 @@ module.exports = {
   plugins: ["react"],
   rules: {
     "jsx-a11y/anchor-is-valid": "off",
+    "react/react-in-jsx-scope": "off",
   },
 };
