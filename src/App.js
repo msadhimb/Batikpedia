@@ -8,9 +8,9 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route exact path="/user" element={<Navbar />} />
-          <Route exact path="/admin" element={<Navbar />} />
-          <Route path="/" element={<Navigate to="/user" />} />
+          <Route exact path="/" element={<Navigate to="/user" />} />
+          <Route path="/user" element={<Navbar />} />
+          <Route path="/admin" element={<Navbar />} />
         </Routes>
       </BrowserRouter>
     </div>
