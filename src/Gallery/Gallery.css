@@ -34,12 +34,14 @@
 
 .motif,
 .desc {
+  padding: 25px;
   margin-top: 2.5rem;
-  font-size: 20px;
+  font-size: 16px;
   font-family: "Montserrat", sans-serif;
 }
 
 .desc {
+  margin-top: -2.5rem;
   text-align: justify;
 }
 
@@ -58,11 +60,10 @@
 
 @media (max-width: 992px) {
   .image-expand {
-    height: max-content !important;
+    height: 80rem !important;
   }
-}
-@media (max-width: 768px) {
-  .image-expand {
-    height: 140rem !important;
+  .motif,
+  .desc {
+    font-size: 10px;
   }
 }

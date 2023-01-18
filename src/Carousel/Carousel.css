@@ -1,10 +1,17 @@
 .carousel {
   height: 100vh;
 }
+.carousel p {
+  padding: 10px;
+}
 
 @media (max-width: 768px) {
   .carousel,
   .bg {
-    height: 85vh;
+    height: 70vh;
+  }
+
+  .carousel p {
+    font-size: 10px;
   }
 }

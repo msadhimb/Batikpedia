@@ -28,7 +28,7 @@ const Gallery = () => {
           <p
             className=" desc"
             dangerouslySetInnerHTML={{
-              __html: data.deskripsi_sejarah,
+              __html: `Sejarah : <br> ${data.deskripsi_sejarah}`,
             }}
           ></p>
         </div>
@@ -40,7 +40,7 @@ const Gallery = () => {
 
   return (
     <React.Fragment>
-      <div className="search bg-dark ps-5">
+      <div className="search bg-dark ps-5" id="gallery">
         <Form.Control
           type="text"
           placeholder="Cari Batik (Asal kota)"
@@ -48,7 +48,7 @@ const Gallery = () => {
           onChange={(event) => setSearchTerm(event.target.value)}
         />
       </div>
-      <div className="gallery-container row text-center p-5 pt-4" id="gallery">
+      <div className="gallery-container row text-center p-5 pt-4">
         {res
           .filter((image) => {
             if (searchTerm === "") {
