@@ -243,13 +243,13 @@ const Comment = () => {
                             }}
                           >
                             <i
-                              class="fa-solid fa-check icon"
+                              className="fa-solid fa-check icon"
                               style={{ fontSize: 15 }}
                             ></i>
                           </button>
                           <button className="btn btn-danger btn-sm">
                             <i
-                              class="fa-solid fa-xmark icon"
+                              className="fa-solid fa-xmark icon"
                               style={{ fontSize: 15 }}
                               onClick={() => setEdit(false)}
                             ></i>

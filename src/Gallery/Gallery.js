@@ -67,6 +67,7 @@ const Gallery = () => {
                 className={
                   detail && imageId === image.id ? "col-md-12" : "col-md-3"
                 }
+                key={image.id}
               >
                 <div
                   className="gallery-item"
